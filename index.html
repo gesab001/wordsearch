@@ -17,31 +17,29 @@
             <button  style="display:none" id="remove-last-word">Remove last word</button>
         </div>
         <fieldset id="controls">
-            <div>
             <label for="allowed-missing-words">Allowed missing words :
-                <input id="allowed-missing-words" type="number" min="0" max="10" step="1" value="10">
+                <input id="allowed-missing-words" type="number" min="0" max="10" step="1" value="0">
             </label>
             <label for="max-grid-growth">Max grid growth :
-                <input id="max-grid-growth" type="number" min="0" max="5" step="1" value="5">
+                <input id="max-grid-growth" type="number" min="0" max="20" step="1" value="10">
             </label>
             <label for="max-attemps-per-grid-and-wordset">Max attemps per grid &amp; wordset :
-                <input id="max-attemps-per-grid-and-wordset" type="number" min="1" max="500" step="1" value="100">
+                <input id="max-attemps-per-grid-and-wordset" type="number" min="1" max="500" step="1" value="200">
             </label>
             <label for="prefer-letter-overlaps">Prefer letter overlap :
                 <input id="prefer-letter-overlaps" type="checkbox">
             </label>
             <label for="filling-letters">Filling letters :
                 <select id="filling-letters">
-                    <option value="secret-word">form a secret word</option>
+                    <option  value="secret-word">form a secret word</option>
                     <option value="none">none, allow blanks</option>
                     <option value="secret-word-plus-blanks">form a secret word but allow for extra blanks</option>
-                    <option value="random" selected="selected">random</option>
+                    <option selected="selected"value="random" >random</option>
                 </select>
             </label>
             <label for="secret-word">Secret word :
                 <input id="secret-word">
             </label>
-            </div>
             <button id="create-grid">Create grid</button>
             <p id="result-message"></p>
             <button id="solve">Solve Puzzle</button>
