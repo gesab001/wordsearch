@@ -11,35 +11,37 @@
     <h1>Bible WordFind</h1>
     <div id="main" role="main">
         <div id="puzzle"></div>
-        <div id="words-editor">
+        <div id="words-editor" >
             <ul id="words"></ul>
-            <button id="add-word">Add word</button>
-            <button id="remove-last-word">Remove last word</button>
+            <button style="display:none" id="add-word">Add word</button>
+            <button  style="display:none" id="remove-last-word">Remove last word</button>
         </div>
         <fieldset id="controls">
+            <div style="display:none">
             <label for="allowed-missing-words">Allowed missing words :
-                <input id="allowed-missing-words" type="number" min="0" max="10" step="1" value="2">
+                <input id="allowed-missing-words" type="number" min="0" max="10" step="1" value="0">
             </label>
             <label for="max-grid-growth">Max grid growth :
-                <input id="max-grid-growth" type="number" min="0" max="5" step="1" value="0">
+                <input id="max-grid-growth" type="number" min="0" max="5" step="1" value="5">
             </label>
             <label for="max-attemps-per-grid-and-wordset">Max attemps per grid &amp; wordset :
                 <input id="max-attemps-per-grid-and-wordset" type="number" min="1" max="500" step="1" value="100">
             </label>
             <label for="prefer-letter-overlaps">Prefer letter overlap :
-                <input id="prefer-letter-overlaps" type="checkbox" checked>
+                <input id="prefer-letter-overlaps" type="checkbox">
             </label>
             <label for="filling-letters">Filling letters :
-                <select id="filling-letters" selected>
+                <select id="filling-letters">
                     <option value="secret-word">form a secret word</option>
                     <option value="none">none, allow blanks</option>
                     <option value="secret-word-plus-blanks">form a secret word but allow for extra blanks</option>
-                    <option value="random">random</option>
+                    <option value="random" selected="selected">random</option>
                 </select>
             </label>
             <label for="secret-word">Secret word :
                 <input id="secret-word">
             </label>
+            </div>
             <button id="create-grid">Create grid</button>
             <p id="result-message"></p>
             <button id="solve">Solve Puzzle</button>
@@ -50,22 +52,13 @@
     <script type="text/javascript" src="wordfind.js"></script> 
     <script type="text/javascript" src="wordfindgame.js"></script> 
     <script>
-
-    var wordlist = [
-       'jesus',
-       'god',
-       'genesis',
-       'exodus',
-       'leviticus',
-       'matthew',
-       'angels',
-       'beast',
-       'dragon',
-       'eternal',
-    ];
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const wordlistparam = JSON.parse(urlParams.get('wordlist'));
+    var wordlist = wordlistparam["items"];
     wordlist.map(word => WordFindGame.insertWord($('#words'), word));
 
-    $('#secret-word').val('LAETITIA');
+    $('#secret-word').val('JESUS');
 
     /* Init */
     function recreate() {
