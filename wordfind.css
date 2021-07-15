@@ -6,6 +6,10 @@
 *     http://github.com/bunkat/wordfind
 */
 
+html {
+ touch-action: none;
+}
+
 body {
   font: 1em Arial;
 }
