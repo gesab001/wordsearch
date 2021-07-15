@@ -7,7 +7,7 @@
 */
 
 html {
- touch-action: none;
+
 }
 
 body {
@@ -34,8 +34,16 @@ h1 {
 * Styles for the puzzle
 */
 #puzzle {
+   touch-action: none;
   border: 1px solid black;
   padding: 0;
+      position:fixed;
+
+
+  z-index: 500;
+    top:0;
+
+    background-color: yellow;
 }
 
 #puzzle > div { /* rows */
@@ -83,12 +91,34 @@ button::-moz-focus-inner {
 /* indicates that all words have been found */
 #puzzle .complete {
   background-color: green;
+
 }
 
 /**
 * Styles for the word list
 */
+
+#divider {
+margin-top: 50%;
+  height: 100px;
+  width: 100%;
+  background-color: grey;
+  position: relative;
+}
+
+#editor-container{
+  overflow: scroll;
+  margin-top: 50%;
+  width: 100%;
+  z-index: 100;
+}
+
 #words-editor {
+
+    position:relative;
+  width: 100%;
+  background-color: red;
+
   display: flex;
   flex-flow: column;
   justify-content: center;
